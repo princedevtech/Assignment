@@ -1,0 +1,19 @@
+<!-- tasks/templates/tasks/view_tasks.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Task Manager</title>
+</head>
+<body>
+    <h1>Task Manager</h1>
+    <ul>
+        {% for task in tasks %}
+            <li>
+                {{ task.title }} - {% if task.completed %}Completed{% else %}Pending{% endif %}
+                <a href="{% url 'complete_task' task.id %}">Mark as complete</a>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'add_task' %}">Add a Task</a>
+</body>
+</html>
